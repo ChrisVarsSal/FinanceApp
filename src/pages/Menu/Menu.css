@@ -1,0 +1,13 @@
+body{
+  font-family: Arial, sans-serif;
+}
+
+.menu{
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  color: white;
+  background-color: #3729cc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
