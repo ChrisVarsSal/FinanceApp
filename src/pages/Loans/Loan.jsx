@@ -12,19 +12,21 @@ function Loans() {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
+            <th scope="col">Loan Id</th>
+            <th scope="col">Amount</th>
             <th scope="col">Term (months)</th>
+            <th scope="col">Interest Rate (%)</th>
             <th scope="col">Status</th>
-            <th scope="col">Expended Date</th>
+            <th scope="col">Requested Date</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
+            <td>500000</td>
             <td>24</td>
+            <td>7.5</td>
             <td>Approved</td>
             <td>2025-01-12</td>
             <td>
@@ -40,11 +42,13 @@ function Loans() {
             <td>@fat</td>
             <td>@fat</td>
             <td>@fat</td>
+            <td>@fat</td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Larry</td>
             <td>the Bird</td>
+            <td>@twitter</td>
             <td>@twitter</td>
             <td>@twitter</td>
             <td>@twitter</td>
