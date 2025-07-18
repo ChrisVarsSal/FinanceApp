@@ -1,0 +1,463 @@
+/* Box sizing reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Container */
+.pay-loan-container {
+  max-width: 1000px;
+  margin: 50px auto 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Wrapper */
+.loan-payment-wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/* Header */
+.loan-payment-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.loan-payment-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.loan-payment-subtitle {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* Cards */
+.loan-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Grid */
+.loan-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .loan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #2563eb;
+  margin-right: 0.5rem;
+}
+
+.card-header-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Loan summary items */
+.loan-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.loan-summary-item:last-child {
+  border-bottom: none;
+}
+
+.loan-summary-label {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.loan-summary-value {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.loan-summary-value.balance {
+  font-weight: 700;
+  color: #dc2626;
+  font-size: 1.125rem;
+}
+
+.loan-summary-value.paid {
+  color: #059669;
+}
+
+/* Form */
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Currency input */
+.currency-input-wrapper {
+  position: relative;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 1.125rem;
+  pointer-events: none;
+}
+
+.currency-input {
+  padding-left: 2rem;
+  font-size: 1.125rem;
+}
+
+/* Quick payment buttons */
+.quick-payment-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quick-payment-btn {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.quick-payment-btn.monthly {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.quick-payment-btn.monthly:hover {
+  background-color: #bfdbfe;
+}
+
+.quick-payment-btn.payoff {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.quick-payment-btn.payoff:hover {
+  background-color: #a7f3d0;
+}
+
+/* Payment summary */
+.payment-summary {
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.payment-summary-title {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.payment-summary-line,
+.payment-summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.payment-summary-total {
+  font-weight: 700;
+  font-size: 1.125rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #d1d5db;
+}
+
+.payment-summary-total .amount {
+  color: #2563eb;
+}
+
+/* Alerts */
+.alert {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.alert.success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.alert.warning {
+  background-color: #fffbeb;
+  border: 1px solid #fed7aa;
+}
+
+.alert-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.alert.success .alert-icon {
+  color: #059669;
+}
+
+.alert.warning .alert-icon {
+  color: #d97706;
+}
+
+.alert-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.alert.success .alert-title {
+  color: #065f46;
+}
+
+.alert.warning .alert-title {
+  color: #92400e;
+}
+
+.alert-message {
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+/* Warning Info */
+.warning-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.warning-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #f59e0b;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.warning-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Payment button */
+.payment-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-size: 1rem;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Payment history */
+.payment-history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.payment-history-item:last-child {
+  border-bottom: none;
+}
+
+.payment-history-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.payment-history-amount {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.quick-action-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #2563eb;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.loan-amount{
+  background-color: white;
+  color: black;
+  margin: 15px;
+}
+
+.btn-pay-month,.btn-pay-all{
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.drop-down{
+  margin: 15px;
+}
+
+/* Select dropdown */
+.form-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pay-loan-container {
+    padding: 0.5rem;
+  }
+
+  .loan-payment-title {
+    font-size: 1.5rem;
+  }
+
+  .loan-card {
+    padding: 1rem;
+  }
+
+  .quick-payment-buttons {
+    flex-direction: column;
+  }
+
+  .payment-summary-line,
+  .payment-summary-total {
+    font-size: 0.75rem;
+  }
+
+  .payment-summary-total {
+    font-size: 1rem;
+  }
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Focus outline */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
