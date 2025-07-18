@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.new-account-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.new-account-container form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.new-account-container form::before {
+  content: 'Create New Account';
+  display: block;
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-row:last-of-type {
+  grid-template-columns: 1fr 0.8fr 0.4fr;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f9fa;
+  color: black;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background-color: white;
+}
+
+.form-control::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+select.form-control {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%23667eea' d='M6 8.5L2 4.5h8L6 8.5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.form-check-label {
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .new-account-container {
+    padding: 15px;
+  }
+  
+  .new-account-container form {
+    padding: 2rem;
+    max-width: 500px;
+  }
+  
+  .new-account-container form::before {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .form-row:last-of-type {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .form-control {
+    padding: 0.65rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn {
+    padding: 0.65rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .new-account-container {
+    padding: 10px;
+  }
+  
+  .new-account-container form {
+    padding: 1.5rem;
+    max-width: 400px;
+  }
+  
+  .new-account-container form::before {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+    padding: 0.55rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 0.55rem;
+    font-size: 0.9rem;
+  }
+  
+  .form-check-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .new-account-container form {
+    max-width: 320px;
+    padding: 1rem;
+  }
+  
+  .new-account-container form::before {
+    font-size: 1.3rem;
+  }
+  
+  .form-control {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .btn {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 700px) and (orientation: landscape) {
+  .new-account-container {
+    padding: 15px;
+  }
+  
+  .new-account-container form {
+    padding: 1.5rem;
+    max-width: 750px;
+  }
+  
+  .new-account-container form::before {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-row {
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Focus states and accessibility */
+.form-control:focus,
+.form-check-input:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for better UX */
+.form-group {
+  transition: transform 0.2s ease;
+}
+
+.form-group:focus-within {
+  transform: scale(1.02);
+}
+
+/* Error states (opcional para futuras validaciones) */
+.form-control.error {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+.form-control.error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Success states (opcional para futuras validaciones) */
+.form-control.success {
+  border-color: #28a745;
+  background-color: #f8fff8;
+}
+
+.form-control.success:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
