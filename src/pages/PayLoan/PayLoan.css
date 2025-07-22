@@ -3,16 +3,6 @@
   box-sizing: border-box;
 }
 
-/* Container */
-.pay-loan-container {
-  max-width: 1000px;
-  margin: 50px auto 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
 /* Wrapper */
 .loan-payment-wrapper {
   max-width: 1024px;
@@ -25,16 +15,8 @@
   margin-bottom: 2rem;
 }
 
-.loan-payment-title {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
-
-.loan-payment-subtitle {
-  color: #6b7280;
-  font-size: 1rem;
+p{
+  color: white;
 }
 
 /* Cards */

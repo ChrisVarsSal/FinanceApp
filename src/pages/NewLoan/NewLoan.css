@@ -24,6 +24,7 @@ h1 {
 label {
     display: block;
     margin-bottom: 5px;
+    color: white;
 }
 
 .form-control {

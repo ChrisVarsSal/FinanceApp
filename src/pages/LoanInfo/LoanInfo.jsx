@@ -23,7 +23,7 @@ function LoanInfo() {
   };
 
   return (
-    <div className="loan-info-container">
+    <div className="container-general">
       <h1>Loan Information</h1>
       <div className="container-1">
         <div className="section">

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function NewLoan() {
   const navigate = useNavigate();
   return (
-    <div className="new-loan-container">
+    <div className="container-general">
       <h1>Create New Loan</h1>
       <form>
         <div className="form-group">

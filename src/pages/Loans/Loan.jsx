@@ -7,7 +7,7 @@ function Loans() {
     navigate(`/loan/${id}`);
   };*/
   return (
-    <div className="loan-container">
+    <div className="container-general">
       <h1>Your Loans</h1>
       <table className="table">
         <thead>
