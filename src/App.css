@@ -92,3 +92,12 @@
   border-radius: 5px;
   background-color: #f9f9f960;
 }
+
+.container-general{
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  background-color: #3729cc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
