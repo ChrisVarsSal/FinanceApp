@@ -8,6 +8,8 @@ import NewLoan from "./pages/NewLoan/NewLoan";
 import Loans from "./pages/Loans/Loan";
 import LoanInfo from "./pages/LoanInfo/LoanInfo";
 import PayLoan from "./pages/PayLoan/PayLoan";
+import Savings from "./pages/Savings/Savings";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   const location = useLocation();
@@ -22,11 +24,11 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/account" element={<NewAccount />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/dashboard" element={<Menu />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/new-loan" element={<NewLoan />} />
           <Route path="/loan-info" element={<LoanInfo />} />
           <Route path="/pay-loan" element={<PayLoan />} />
-          <Route path="/savings" element={<Menu />} />
+          <Route path="/savings" element={<Savings />} />
           <Route path="/loans" element={<Loans />} />
           <Route path="/documents" element={<Menu />} />
           <Route path="/profile" element={<Menu />} />
