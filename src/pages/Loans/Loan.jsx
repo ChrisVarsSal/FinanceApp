@@ -12,7 +12,7 @@ function Loans() {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Loan Id</th>
+            <th scope="col">Id</th>
             <th scope="col">Amount</th>
             <th scope="col">Term (months)</th>
             <th scope="col">Interest Rate (%)</th>
