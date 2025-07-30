@@ -93,7 +93,7 @@ function LoanInfo() {
         <div>
           <button
             className="btn btn-secondary"
-            onClick={() => navigate("/pay-loan")}
+            onClick={() => navigate("/payment-center")}
           >
             Pay Loan
           </button>
