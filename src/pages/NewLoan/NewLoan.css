@@ -2,29 +2,15 @@
     box-sizing: border-box;
 }
 
-.new-loan-container {
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
 h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: white;
+.form-group{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 25px;
 }
 
 .form-control {
@@ -34,12 +20,16 @@ label {
     border-radius: 4px;
 }
 
-@media (max-width: 480px) {
-  .new-loan-container {
-    margin: 10px;
-    padding: 10px;
-  }
+.btn{
+    margin: auto;
+}
 
+.btn-secondary {
+    margin-bottom: 25px;
+}
+
+
+@media (max-width: 480px) {
   h1 {
     font-size: 1.3rem;
   }
@@ -48,7 +38,7 @@ label {
     font-size: 0.9rem;
   }
 
-  label {
+  h6 {
     font-size: 0.95rem;
   }
 }
