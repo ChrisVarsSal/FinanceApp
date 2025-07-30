@@ -86,7 +86,7 @@ function SavingsInfo() {
         <div>
           <button
             className="btn btn-secondary"
-            onClick={() => navigate("/pay-loan")}
+            onClick={() => navigate("/payment-center")}
           >
             Add to Savings
           </button>
