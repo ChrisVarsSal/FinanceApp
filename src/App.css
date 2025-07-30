@@ -85,7 +85,7 @@
 }
 
 .container-1{
-  width: 800px;
+  max-width: auto;
   margin: 30px;
   padding: 20px;
   border: 1px solid #ccc;
