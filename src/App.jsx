@@ -13,6 +13,7 @@ import NewSaving from "./pages/NewSaving/NewSaving";
 import SavingsInfo from "./pages/SavingsInfo/SavingsInfo";
 import PayCenter from "./pages/PaymentCenter/PaymentCenter";
 import Profile from "./pages/Profile/Profile";
+import Settings from "./pages/Settings/Settings";
 
 function App() {
   const location = useLocation();
@@ -37,7 +38,7 @@ function App() {
           <Route path="/loans" element={<Loans />} />
           <Route path="/documents" element={<Menu />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/settings" element={<Menu />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
