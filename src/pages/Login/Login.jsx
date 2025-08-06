@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
   return (
-    <div className="login-container">
+    <div className="container-login">
       <form className="login-form">
         <h1>FinanceApp</h1>
         <div className="form-group">
@@ -39,14 +39,14 @@ function Login() {
 
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary btn-signin"
           onClick={() => navigate("/menu")}
         >
           Sign In
         </button>
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-secondary btn-create-account"
           onClick={() => navigate("/account")}
         >
           Create Account
