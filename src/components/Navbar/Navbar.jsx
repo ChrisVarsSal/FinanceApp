@@ -7,7 +7,6 @@ import {
   FaFileAlt,
   FaUser,
   FaCog,
-  FaClipboardList,
   FaLockOpen,
 } from "react-icons/fa";
 
