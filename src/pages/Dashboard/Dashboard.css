@@ -9,10 +9,17 @@
 }
 
 body {
+  background: linear-gradient(135deg, #1e3a8a, #7c3aed, #3730a3);
+  min-height: 100vh;
   color: #f1f5f9;
   display: flex;
   justify-content: center;
   padding: 40px 20px;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* Grid de estadísticas */
@@ -24,29 +31,34 @@ body {
 }
 
 .stat-card {
-  background-color: #1e293b;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: 16px;
   text-align: center;
-  border: 1px solid #334155;
-  transition: transform 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .stat-card:hover {
-  transform: scale(1.02);
-  border-color: #38bdf8;
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
 }
 
 .stat-title {
-  font-size: 1rem;
-  color: #94a3b8;
+  font-size: 0.9rem;
+  color: #cbd5e1;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .stat-value {
   font-size: 1.75rem;
   font-weight: bold;
   color: #f8fafc;
+  margin-bottom: 0.5rem;
 }
 
 /* Sección de transacciones y gastos */
@@ -57,10 +69,12 @@ body {
 }
 
 .card {
-  background-color: #1e293b;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
   padding: 1.5rem;
-  border: 1px solid #334155;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* Transacciones */
@@ -68,7 +82,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .transactions-title {
@@ -78,28 +92,41 @@ body {
 }
 
 .btn-view-all {
-  width: fit-content;
-  margin-left: auto;
-  padding: 0.3rem 0.75rem;
-  background-color: #38bdf8;
-  color: #0f172a;
-  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;
-  border: none;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-view-all:hover {
+  background: rgba(56, 189, 248, 0.3);
+  transform: translateY(-1px);
 }
 
 .transaction-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #334155;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.transaction-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
 }
 
 .transaction-item:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .transaction-left {
@@ -110,6 +137,7 @@ body {
 .transaction-description {
   color: #f8fafc;
   font-weight: 500;
+  margin-bottom: 0.25rem;
 }
 
 .transaction-date {
@@ -117,14 +145,17 @@ body {
   color: #94a3b8;
 }
 
+.transaction-amount {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 .transaction-amount.income {
   color: #4ade80;
-  font-weight: 600;
 }
 
 .transaction-amount.expense {
   color: #f87171;
-  font-weight: 600;
 }
 
 /* Gastos */
@@ -132,19 +163,21 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   color: #f8fafc;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .expense-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
 }
 
 .expense-category {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .expense-amount {
@@ -152,14 +185,53 @@ body {
   font-weight: 600;
 }
 
-.container-1{
-  margin: auto;
-  margin-bottom: 50px;
+.container-1 {
+  margin-bottom: 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+  }
+  
+  .dashboard-container {
+    max-width: 100%;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
   .main-content {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.25rem;
+  }
+  
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    gap: 0.75rem;
+  }
+  
+  .main-content {
+    gap: 0.75rem;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
   }
 }
