@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   FaChartLine,
   FaPiggyBank,
@@ -11,6 +11,18 @@ import {
 } from "react-icons/fa";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    const confirmLogout = window.confirm(
+      "Are you sure you want to end the session?"
+    );
+    if (confirmLogout) {
+      localStorage.removeItem("userToken");
+      sessionStorage.clear();
+      navigate("/login");
+    }
+  };
   return (
     <nav className="navbar">
       <ul className="nav-list">
@@ -48,9 +60,9 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/login">
+          <a href="/login" onClick={handleLogout} style={{ cursor: "pointer" }}>
             <FaLockOpen className="icon" /> Log Out
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>
