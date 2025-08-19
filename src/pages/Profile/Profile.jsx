@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   User,
   Camera,
@@ -13,151 +12,26 @@ import {
   Settings,
 } from "lucide-react";
 import "./Profile.css";
+import { useProfile } from "../../hooks/useProfile";
 
 function Profile() {
-  const [isEditing, setIsEditing] = useState(false);
-  const [profilePicture, setProfilePicture] = useState(
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-  );
-  const [userInfo, setUserInfo] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    username: "john.doe",
-    email: "john.doe@email.com",
-    phone: "+1 (555) 123-4567",
-    dateOfBirth: "1990-05-15",
-  });
-
-  const [tempUserInfo, setTempUserInfo] = useState(userInfo);
-  const [paymentMethods, setPaymentMethods] = useState([
-    {
-      id: 1,
-      type: "credit",
-      brand: "Visa",
-      lastFour: "4532",
-      expiryDate: "12/25",
-      isDefault: true,
-    },
-    {
-      id: 2,
-      type: "debit",
-      brand: "Mastercard",
-      lastFour: "8901",
-      expiryDate: "08/26",
-      isDefault: false,
-    },
-    {
-      id: 3,
-      type: "paypal",
-      brand: "PayPal",
-      email: "john.doe@email.com",
-      isDefault: false,
-    },
-  ]);
-
-  const [showAddPayment, setShowAddPayment] = useState(false);
-  const [newPayment, setNewPayment] = useState({
-    type: "credit",
-    cardNumber: "",
-    expiryDate: "",
-    cvv: "",
-    holderName: "",
-  });
-
-  const handleEditToggle = () => {
-    if (isEditing) {
-      setTempUserInfo(userInfo);
-    }
-    setIsEditing(!isEditing);
-  };
-
-  const handleSave = () => {
-    setUserInfo(tempUserInfo);
-    setIsEditing(false);
-  };
-
-  const handleProfilePictureChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setProfilePicture(e.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleDeletePayment = (id) => {
-    setPaymentMethods(paymentMethods.filter((method) => method.id !== id));
-  };
-
-  const handleSetDefault = (id) => {
-    setPaymentMethods(
-      paymentMethods.map((method) => ({
-        ...method,
-        isDefault: method.id === id,
-      }))
-    );
-  };
-
-  const handleAddPayment = () => {
-    if (
-      newPayment.cardNumber &&
-      newPayment.expiryDate &&
-      newPayment.cvv &&
-      newPayment.holderName
-    ) {
-      const payment = {
-        id: Date.now(),
-        type: newPayment.type,
-        brand: newPayment.cardNumber.startsWith("4") ? "Visa" : "Mastercard",
-        lastFour: newPayment.cardNumber.slice(-4),
-        expiryDate: newPayment.expiryDate,
-        isDefault: paymentMethods.length === 0,
-      };
-      setPaymentMethods([...paymentMethods, payment]);
-      setNewPayment({
-        type: "credit",
-        cardNumber: "",
-        expiryDate: "",
-        cvv: "",
-        holderName: "",
-      });
-      setShowAddPayment(false);
-    }
-  };
-
-  const getCardIcon = (brand) => {
-    const iconStyle = "w-8 h-5 rounded";
-    switch (brand.toLowerCase()) {
-      case "visa":
-        return (
-          <div
-            className={`${iconStyle} bg-blue-600 flex items-center justify-center text-white text-xs font-bold`}
-          >
-            VISA
-          </div>
-        );
-      case "mastercard":
-        return (
-          <div
-            className={`${iconStyle} bg-red-500 flex items-center justify-center text-white text-xs font-bold`}
-          >
-            MC
-          </div>
-        );
-      case "paypal":
-        return (
-          <div
-            className={`${iconStyle} bg-blue-500 flex items-center justify-center text-white text-xs font-bold`}
-          >
-            PP
-          </div>
-        );
-      default:
-        return <CreditCard className="w-8 h-5 text-gray-400" />;
-    }
-  };
+  const{isEditing,
+    profilePicture,
+    userInfo,
+    tempUserInfo,
+    paymentMethods,
+    showAddPayment,
+    newPayment,
+    setTempUserInfo,
+    setShowAddPayment,
+    setNewPayment,
+    handleEditToggle,
+    handleSave,
+    handleProfilePictureChange,
+    handleDeletePayment,
+    handleSetDefault,
+    handleAddPayment,
+    getCardIcon,}=useProfile();
   return (
     <div className="container-general">
         <div className="max-w-4xl mx-auto">
