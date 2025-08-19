@@ -1,47 +1,24 @@
-import { useState } from "react";
 import "./PaymentCenter.css";
+import { usePayment } from "../../hooks/usePayment";
 
 function PaymentCenter() {
-  const [paymentAmount, setPaymentAmount] = useState("");
-  const [paymentType, setPaymentType] = useState("loan");
-  const [paymentMethod, setPaymentMethod] = useState("credit-card");
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
-  const [accountNumber, setAccountNumber] = useState("");
-
-  const paymentTypes = {
-    loan: { label: "Loan Payment", fee: 0.0 },
-    mortgage: { label: "Savings Payment", fee: 0.0 },
-    other: { label: "Other Payment", fee: 2.99 },
-  };
-
-  const handlePaymentSubmit = async () => {
-    if (!paymentAmount || !accountNumber) return;
-    setIsProcessing(true);
-    setTimeout(() => {
-      setIsProcessing(false);
-      setPaymentSuccess(true);
-      setTimeout(() => setPaymentSuccess(false), 3000);
-    }, 2000);
-  };
-
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
-
-  const getProcessingFee = () => {
-    return paymentTypes[paymentType]?.fee || 0;
-  };
-
-  const getTotalAmount = () => {
-    const amount = parseFloat(paymentAmount) || 0;
-    const fee = getProcessingFee();
-    return amount + fee;
-  };
-
+  const {
+    paymentAmount,
+    setPaymentAmount,
+    paymentType,
+    setPaymentType,
+    paymentMethod,
+    setPaymentMethod,
+    accountNumber,
+    setAccountNumber,
+    paymentTypes,
+    handlePaymentSubmit,
+    formatCurrency,
+    getProcessingFee,
+    getTotalAmount,
+    isProcessing,
+    paymentSuccess,
+  } = usePayment();
   return (
     <div className="container-general">
       <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-5">
@@ -331,66 +308,60 @@ function PaymentCenter() {
             </div>
 
             {/* Sidebar */}
-              <div className="space-y-6">
-                {/* Quick Actions */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-                  <h3 className="font-semibold text-gray-800 mb-4 flex items-center justify-center">
-                    <span className="text-blue-600 mr-2">⚙️</span>
-                    Quick Actions
-                  </h3>
-                  <div className="space-y-3">
-                    <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
-                      <span className="mr-3">📥</span>
-                      <span className="text-sm font-medium">
-                        Download Receipt
-                      </span>
-                    </button>
-                    <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
-                      <span className="mr-3">🔄</span>
-                      <span className="text-sm font-medium">
-                        Set Up Auto-Pay
-                      </span>
-                    </button>
-                    <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
-                      <span className="mr-3">📄</span>
-                      <span className="text-sm font-medium">
-                        Payment History
-                      </span>
-                    </button>
-                    <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
-                      <span className="mr-3">📞</span>
-                      <span className="text-sm font-medium">
-                        Contact Support
-                      </span>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Payment Tips */}
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                  <h3 className="font-semibold text-blue-800 mb-3 text-center">
-                    💡 Payment Tips
-                  </h3>
-                  <ul className="space-y-2 text-sm text-blue-700">
-                    <li>• Pay before due dates to avoid late fees</li>
-                    <li>• Set up auto-pay for recurring payments</li>
-                    <li>• Keep payment confirmations for your records</li>
-                    <li>• Contact us if you need payment assistance</li>
-                  </ul>
-                </div>
-
-                {/* Security Badge */}
-                <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-                  <h3 className="font-semibold text-green-800 mb-2 text-center flex items-center justify-center">
-                    <span className="mr-2">🔒</span>
-                    Secure Payments
-                  </h3>
-                  <p className="text-sm text-green-700 text-center">
-                    Your payments are protected with bank-level security and
-                    encryption.
-                  </p>
+            <div className="space-y-6">
+              {/* Quick Actions */}
+              <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+                <h3 className="font-semibold text-gray-800 mb-4 flex items-center justify-center">
+                  <span className="text-blue-600 mr-2">⚙️</span>
+                  Quick Actions
+                </h3>
+                <div className="space-y-3">
+                  <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span className="mr-3">📥</span>
+                    <span className="text-sm font-medium">
+                      Download Receipt
+                    </span>
+                  </button>
+                  <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span className="mr-3">🔄</span>
+                    <span className="text-sm font-medium">Set Up Auto-Pay</span>
+                  </button>
+                  <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span className="mr-3">📄</span>
+                    <span className="text-sm font-medium">Payment History</span>
+                  </button>
+                  <button className="btn btn-primary w-full flex items-center justify-start px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span className="mr-3">📞</span>
+                    <span className="text-sm font-medium">Contact Support</span>
+                  </button>
                 </div>
               </div>
+
+              {/* Payment Tips */}
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <h3 className="font-semibold text-blue-800 mb-3 text-center">
+                  💡 Payment Tips
+                </h3>
+                <ul className="space-y-2 text-sm text-blue-700">
+                  <li>• Pay before due dates to avoid late fees</li>
+                  <li>• Set up auto-pay for recurring payments</li>
+                  <li>• Keep payment confirmations for your records</li>
+                  <li>• Contact us if you need payment assistance</li>
+                </ul>
+              </div>
+
+              {/* Security Badge */}
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                <h3 className="font-semibold text-green-800 mb-2 text-center flex items-center justify-center">
+                  <span className="mr-2">🔒</span>
+                  Secure Payments
+                </h3>
+                <p className="text-sm text-green-700 text-center">
+                  Your payments are protected with bank-level security and
+                  encryption.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
