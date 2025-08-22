@@ -1,23 +1,12 @@
 import "./SavingsInfo.css";
 import { useNavigate } from "react-router-dom";
+import { useSavingsInfo } from "../../hooks/useSavingsInfo";
+import { useCurrency } from "../../hooks/useCurrency";
 
 function SavingsInfo() {
   const navigate = useNavigate();
-  const loan = {
-    id: 1,
-    name: "Juan Pérez",
-    initialDeposit: 100,
-    interestRate: 7.5,
-    requestedDate: "2025-01-05",
-    monthlyContribution: 500,
-    targetAmount: 10000,
-  };
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
+  const { loan} = useSavingsInfo();
+  const { formatCurrency } = useCurrency();
   return (
     <div className="container-general">
       <h1>Saving Fund Information</h1>

@@ -1,27 +1,12 @@
 import "./LoanInfo.css";
 import { useNavigate } from "react-router-dom";
+import { useCurrency } from "../../hooks/useCurrency";
+import { useLoanInfo } from "../../hooks/useLoanInfo";
 
 function LoanInfo() {
   const navigate = useNavigate();
-  const loan = {
-    id: 1,
-    name: "Juan Pérez",
-    amount: 5000,
-    interestRate: 7.5,
-    term: 24,
-    status: "Aprobado",
-    requestedDate: "2025-01-05",
-    disbursementDate: "2025-01-12",
-    monthlyPayment: 225.3,
-    totalPayable: 5407.2,
-  };
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
-
+  const { loan } = useLoanInfo();
+  const { formatCurrency } = useCurrency();
   return (
     <div className="container-general">
       <h1>Loan Information</h1>
